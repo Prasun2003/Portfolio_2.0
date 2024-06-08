@@ -8,8 +8,58 @@
 body{
     color: #ededed;
     background: #001b29;
+    overflow-x: hidden;
+}
+
+/* Navbar Phone */
+
+#phone{
+    z-index: 1000;
+    position: fixed;
+    top:-350px;
+    width: 100%;
+    background:linear-gradient(to bottom,rgba(134, 188, 255, 0.416),rgba(41, 127, 156, 0.959));
+    transition: all 0.8s ease-in-out;
+}
+
+#phone #navlinks{
+    width: 100%;
+    margin-top: 20px;
+}
+
+#phone #navlinks .items{
+    width: 100%;
+    text-align: center;
+    border: 1px solid black;
+    padding: 15px;
 
 }
+
+#phone #navlinks .items a{
+    color:white;
+    text-decoration: none;
+}
+
+#phone #navlinks .items:hover{
+    background-color: #0ef;
+}
+
+#phone #navlinks .items:hover a{
+    color:blue
+}
+
+#phone #cut{
+    background-color: rgb(30, 49, 50);
+    color: white;
+    padding: 10px 15px;
+    font-weight: 300;
+    font-size: 20px;
+    position: relative;
+    left: 80%;
+    margin: 10px;
+}
+
+/* Header Page */
 
 .header{
     position: fixed;
@@ -51,16 +101,44 @@ body{
     color: #0ef;
 }
 
+.header #menu{
+    background-color: transparent;
+    color:white;
+    padding: 3px 5px;
+    font-size: 20px;
+    font-weight: 800;
+    display: none;
+}
+
+.header #menu:hover{
+    background-color: white;
+    color: black;
+}
+
+/* Navbar Responsive Code */
+
+@media screen and (max-width:830px) {
+    .header nav{
+        display: none;
+    }
+    .header #menu{
+        display: block;
+    }
+}
+
+/* Home Page */
+
 .home{
     position: relative;
     width: 100%;
-    justify-content: space-between;
     height: 100vh;
     background: url(background\ 2.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     padding: 70px 10% 0;                   
 }
 
@@ -141,19 +219,31 @@ body{
     0 0 100px cyan,  0 0 200px cyan ;
 }
 
+
+/* About Page */
+
 .about{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    gap: 1.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items:first center;
+}
+
+.about-img{
+    max-width: 400px;
+    padding: 20px;
+    height: auto;
+}
+
+.about-text{
+    padding-top: 20px;
+    width:600px;
+    padding: 20px;
 }
 
 .about-img img{
-    padding-bottom: 20%;
-    max-width: 630px;
-    height: auto;
     width: 100%;
-    border-radius: 8px;
+    border-radius: 50%;
+    box-shadow: 0px 8px 24px rgb(93, 206, 255);
 }
 
 .about-text h2{
@@ -179,11 +269,14 @@ body{
     margin-bottom: 4rem;
 }
 
+
+/* Services */
+
 #services{
     color: aliceblue;
     font-size: 20px;
     line-height: 1.4;
-    margin-bottom: 4rem;
+    margin: 4rem 0px;
 }
 
 .sub-title{
@@ -197,7 +290,7 @@ body{
 }
 
 .container{
-    padding: 90px;
+    padding: 30px;
 }
 
 .services-list {
@@ -238,6 +331,17 @@ body{
     display:inline-block;
 }
 
+@media screen and (max-width:430px) {
+    .sub-title{
+        font-size: 40px;
+        padding-bottom: 20px;
+    }
+}
+
+
+/* Skillset */
+
+
 .read{
     display: inline-block;
     padding: 12px;
@@ -271,10 +375,24 @@ section{
 }
 
 .container1{
-    width: 600px;
-    height: 500px;
-    padding: 75px 90px;
-    margin-left: 120px;
+    overflow-x: hidden;
+}
+
+.container1 #skillset{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.container1 #skillset .Technical-bars{
+    width:600px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container1 #skillset #circles{
+    width:600px;
 }
 
 .heading1{
@@ -406,7 +524,7 @@ section{
 }
 
 .radial-bars{
-    width: 100%;
+    width:100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -414,7 +532,7 @@ section{
 }
 
 .radial-bars .radial-bar{
-    width: 50%;
+    width: 300px;
     height: 170px;
     margin-bottom: 10px;
     position: relative;
@@ -495,7 +613,7 @@ section{
     width: 100%;
     position: absolute;
     text-align: center;
-    left: 50%;
+    left: 45%;
     bottom: -5px;
     transform: translateX(-50px);
     font-size: 17px;
@@ -504,9 +622,11 @@ section{
     opacity: 0;
 }
 
+
+
 .main-text{
     padding-top: 130px;
-    margin-top: 200px;
+    margin-top: 50px;
 }
 
 .main-text h2{
@@ -519,9 +639,18 @@ section{
     color: #0ef;
 }
 
+@media screen and (max-width:430px) {
+    .main-text h2{
+        font-size: 40px;
+        line-height: 1;
+    }
+    
+}
+
 .porfolio-content{
+    margin-top:20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(359px, auto));
+    grid-template-columns: repeat(auto-fit,minmax(400px, auto));
 }
 
 .row{
@@ -590,23 +719,43 @@ section{
     height: 100%;
 }
 
+
+
+/* Contact Form */
+
+
 .contact{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    gap: 3rem;
-    padding-left: 30px;
-    margin-top: 130px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 20px 0px;
+  padding: 20px 20px;
+}
+
+.contact-text{
+    width:600px
+}
+
+.contact-form{
+    width:600px
 }
 
 .contact-text h2{
     font-size: 90px;
     line-height: 1;
     text-align: center;
+    padding: 20px 10px;
 }
 
 .contact-text h2 span{
     color: #0ef;
+}
+
+@media screen and (max-width:500px) {
+    .contact-text h2{
+        font-size: 40px;
+        padding: 20px 10px;
+    }
 }
 
 .contact-text h4{
@@ -714,6 +863,8 @@ section{
     0 0 25px cyan, 0 0 50px cyan,
     0 0 100px cyan,  0 0 200px cyan;
 }
+
+/* Footer */
 
 .last-text p{
     width: 100%;
